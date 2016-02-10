@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CountryNameAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:CountryInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EditedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EditedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsModified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CountryNameAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryNameAddResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:CountryInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryNameUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameGetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryNameGetAllResult" type="tns:ArrayOfCountryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCountryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryInfo" nillable="true" type="tns:CountryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CountryNameGetByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameGetByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryNameGetByIDResult" type="tns:CountryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameDeleteByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryNameDeleteByIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="current" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchCountryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCountryInfo" nillable="true" type="tns:ArrayOfCountryInfo" />
+      <s:element name="CountryInfo" nillable="true" type="tns:CountryInfo" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CountryNameAddSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryNameAdd" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameAddSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryNameAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryNameUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryNameUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryNameGetAll" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryNameGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryNameGetByID" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryNameGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryNameDeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryNameDeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPageData" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchCountry" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCountryInfo" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDHttpGetIn">
+    <wsdl:part name="CountryID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:CountryInfo" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDHttpGetIn">
+    <wsdl:part name="CountryID" type="s:string" />
+    <wsdl:part name="DeletedBy" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDHttpGetOut" />
+  <wsdl:message name="GetPageDataHttpGetIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountryHttpGetIn">
+    <wsdl:part name="searchText" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountryHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCountryInfo" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDHttpPostIn">
+    <wsdl:part name="CountryID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameGetByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:CountryInfo" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDHttpPostIn">
+    <wsdl:part name="CountryID" type="s:string" />
+    <wsdl:part name="DeletedBy" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountryNameDeleteByIDHttpPostOut" />
+  <wsdl:message name="GetPageDataHttpPostIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountryHttpPostIn">
+    <wsdl:part name="searchText" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchCountryHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="CountryWebServiceSoap">
+    <wsdl:operation name="CountryNameAdd">
+      <wsdl:input message="tns:CountryNameAddSoapIn" />
+      <wsdl:output message="tns:CountryNameAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameUpdate">
+      <wsdl:input message="tns:CountryNameUpdateSoapIn" />
+      <wsdl:output message="tns:CountryNameUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetAll">
+      <wsdl:input message="tns:CountryNameGetAllSoapIn" />
+      <wsdl:output message="tns:CountryNameGetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <wsdl:input message="tns:CountryNameGetByIDSoapIn" />
+      <wsdl:output message="tns:CountryNameGetByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <wsdl:input message="tns:CountryNameDeleteByIDSoapIn" />
+      <wsdl:output message="tns:CountryNameDeleteByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataSoapIn" />
+      <wsdl:output message="tns:GetPageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <wsdl:input message="tns:SearchCountrySoapIn" />
+      <wsdl:output message="tns:SearchCountrySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CountryWebServiceHttpGet">
+    <wsdl:operation name="CountryNameGetAll">
+      <wsdl:input message="tns:CountryNameGetAllHttpGetIn" />
+      <wsdl:output message="tns:CountryNameGetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <wsdl:input message="tns:CountryNameGetByIDHttpGetIn" />
+      <wsdl:output message="tns:CountryNameGetByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <wsdl:input message="tns:CountryNameDeleteByIDHttpGetIn" />
+      <wsdl:output message="tns:CountryNameDeleteByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpGetIn" />
+      <wsdl:output message="tns:GetPageDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <wsdl:input message="tns:SearchCountryHttpGetIn" />
+      <wsdl:output message="tns:SearchCountryHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CountryWebServiceHttpPost">
+    <wsdl:operation name="CountryNameGetAll">
+      <wsdl:input message="tns:CountryNameGetAllHttpPostIn" />
+      <wsdl:output message="tns:CountryNameGetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <wsdl:input message="tns:CountryNameGetByIDHttpPostIn" />
+      <wsdl:output message="tns:CountryNameGetByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <wsdl:input message="tns:CountryNameDeleteByIDHttpPostIn" />
+      <wsdl:output message="tns:CountryNameDeleteByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpPostIn" />
+      <wsdl:output message="tns:GetPageDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <wsdl:input message="tns:SearchCountryHttpPostIn" />
+      <wsdl:output message="tns:SearchCountryHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CountryWebServiceSoap" type="tns:CountryWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountryNameAdd">
+      <soap:operation soapAction="http://tempuri.org/CountryNameAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameUpdate">
+      <soap:operation soapAction="http://tempuri.org/CountryNameUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetAll">
+      <soap:operation soapAction="http://tempuri.org/CountryNameGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <soap:operation soapAction="http://tempuri.org/CountryNameGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <soap:operation soapAction="http://tempuri.org/CountryNameDeleteByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <soap:operation soapAction="http://tempuri.org/SearchCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CountryWebServiceSoap12" type="tns:CountryWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountryNameAdd">
+      <soap12:operation soapAction="http://tempuri.org/CountryNameAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameUpdate">
+      <soap12:operation soapAction="http://tempuri.org/CountryNameUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetAll">
+      <soap12:operation soapAction="http://tempuri.org/CountryNameGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <soap12:operation soapAction="http://tempuri.org/CountryNameGetByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <soap12:operation soapAction="http://tempuri.org/CountryNameDeleteByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap12:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <soap12:operation soapAction="http://tempuri.org/SearchCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CountryWebServiceHttpGet" type="tns:CountryWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CountryNameGetAll">
+      <http:operation location="/CountryNameGetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <http:operation location="/CountryNameGetByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <http:operation location="/CountryNameDeleteByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <http:operation location="/SearchCountry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CountryWebServiceHttpPost" type="tns:CountryWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CountryNameGetAll">
+      <http:operation location="/CountryNameGetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameGetByID">
+      <http:operation location="/CountryNameGetByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryNameDeleteByID">
+      <http:operation location="/CountryNameDeleteByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCountry">
+      <http:operation location="/SearchCountry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CountryWebService">
+    <wsdl:port name="CountryWebServiceSoap" binding="tns:CountryWebServiceSoap">
+      <soap:address location="http://localhost:44719/BackEndWebService/CountryWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CountryWebServiceSoap12" binding="tns:CountryWebServiceSoap12">
+      <soap12:address location="http://localhost:44719/BackEndWebService/CountryWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CountryWebServiceHttpGet" binding="tns:CountryWebServiceHttpGet">
+      <http:address location="http://localhost:44719/BackEndWebService/CountryWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CountryWebServiceHttpPost" binding="tns:CountryWebServiceHttpPost">
+      <http:address location="http://localhost:44719/BackEndWebService/CountryWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

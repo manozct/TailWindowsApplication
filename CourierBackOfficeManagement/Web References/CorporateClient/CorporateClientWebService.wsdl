@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CorporateClientAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objCorporateClientInfo" type="tns:CorporateClientInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CorporateClientInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CorporateClientID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPerson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SLA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EditedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsModified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CorporateClientAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorporateClientAddResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objCorporateClientInfo" type="tns:CorporateClientInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorporateClientUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientGetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CorporateClientGetAllResult" type="tns:ArrayOfCorporateClientInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCorporateClientInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CorporateClientInfo" nillable="true" type="tns:CorporateClientInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CorporateClientGetByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorClientID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientGetByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CorporateClientGetByIDResult" type="tns:CorporateClientInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientDeleteByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorClientID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateClientDeleteByIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="current" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCorporateClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCorporateClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchCorporateClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCoroprateChargeByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCoroprateChargeByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCoroprateChargeByIDResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCorporateClientInfo" nillable="true" type="tns:ArrayOfCorporateClientInfo" />
+      <s:element name="CorporateClientInfo" nillable="true" type="tns:CorporateClientInfo" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="decimal" type="s:decimal" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CorporateClientAddSoapIn">
+    <wsdl:part name="parameters" element="tns:CorporateClientAdd" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientAddSoapOut">
+    <wsdl:part name="parameters" element="tns:CorporateClientAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:CorporateClientUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:CorporateClientUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:CorporateClientGetAll" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:CorporateClientGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CorporateClientGetByID" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CorporateClientGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CorporateClientDeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CorporateClientDeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPageData" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchCorporateClient" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchCorporateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCoroprateChargeByID" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCoroprateChargeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDHttpGetIn">
+    <wsdl:part name="CorClientID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:CorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDHttpGetIn">
+    <wsdl:part name="CorClientID" type="s:string" />
+    <wsdl:part name="DeletedBy" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDHttpGetOut" />
+  <wsdl:message name="GetPageDataHttpGetIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientHttpGetIn">
+    <wsdl:part name="searchText" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDHttpGetIn">
+    <wsdl:part name="ID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDHttpPostIn">
+    <wsdl:part name="CorClientID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientGetByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:CorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDHttpPostIn">
+    <wsdl:part name="CorClientID" type="s:string" />
+    <wsdl:part name="DeletedBy" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CorporateClientDeleteByIDHttpPostOut" />
+  <wsdl:message name="GetPageDataHttpPostIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientHttpPostIn">
+    <wsdl:part name="searchText" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchCorporateClientHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDHttpPostIn">
+    <wsdl:part name="ID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCoroprateChargeByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:portType name="CorporateClientWebServiceSoap">
+    <wsdl:operation name="CorporateClientAdd">
+      <wsdl:input message="tns:CorporateClientAddSoapIn" />
+      <wsdl:output message="tns:CorporateClientAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientUpdate">
+      <wsdl:input message="tns:CorporateClientUpdateSoapIn" />
+      <wsdl:output message="tns:CorporateClientUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetAll">
+      <wsdl:input message="tns:CorporateClientGetAllSoapIn" />
+      <wsdl:output message="tns:CorporateClientGetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <wsdl:input message="tns:CorporateClientGetByIDSoapIn" />
+      <wsdl:output message="tns:CorporateClientGetByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <wsdl:input message="tns:CorporateClientDeleteByIDSoapIn" />
+      <wsdl:output message="tns:CorporateClientDeleteByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataSoapIn" />
+      <wsdl:output message="tns:GetPageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <wsdl:input message="tns:SearchCorporateClientSoapIn" />
+      <wsdl:output message="tns:SearchCorporateClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <wsdl:input message="tns:GetCoroprateChargeByIDSoapIn" />
+      <wsdl:output message="tns:GetCoroprateChargeByIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CorporateClientWebServiceHttpGet">
+    <wsdl:operation name="CorporateClientGetAll">
+      <wsdl:input message="tns:CorporateClientGetAllHttpGetIn" />
+      <wsdl:output message="tns:CorporateClientGetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <wsdl:input message="tns:CorporateClientGetByIDHttpGetIn" />
+      <wsdl:output message="tns:CorporateClientGetByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <wsdl:input message="tns:CorporateClientDeleteByIDHttpGetIn" />
+      <wsdl:output message="tns:CorporateClientDeleteByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpGetIn" />
+      <wsdl:output message="tns:GetPageDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <wsdl:input message="tns:SearchCorporateClientHttpGetIn" />
+      <wsdl:output message="tns:SearchCorporateClientHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <wsdl:input message="tns:GetCoroprateChargeByIDHttpGetIn" />
+      <wsdl:output message="tns:GetCoroprateChargeByIDHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CorporateClientWebServiceHttpPost">
+    <wsdl:operation name="CorporateClientGetAll">
+      <wsdl:input message="tns:CorporateClientGetAllHttpPostIn" />
+      <wsdl:output message="tns:CorporateClientGetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <wsdl:input message="tns:CorporateClientGetByIDHttpPostIn" />
+      <wsdl:output message="tns:CorporateClientGetByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <wsdl:input message="tns:CorporateClientDeleteByIDHttpPostIn" />
+      <wsdl:output message="tns:CorporateClientDeleteByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpPostIn" />
+      <wsdl:output message="tns:GetPageDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <wsdl:input message="tns:SearchCorporateClientHttpPostIn" />
+      <wsdl:output message="tns:SearchCorporateClientHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <wsdl:input message="tns:GetCoroprateChargeByIDHttpPostIn" />
+      <wsdl:output message="tns:GetCoroprateChargeByIDHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CorporateClientWebServiceSoap" type="tns:CorporateClientWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CorporateClientAdd">
+      <soap:operation soapAction="http://tempuri.org/CorporateClientAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientUpdate">
+      <soap:operation soapAction="http://tempuri.org/CorporateClientUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetAll">
+      <soap:operation soapAction="http://tempuri.org/CorporateClientGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <soap:operation soapAction="http://tempuri.org/CorporateClientGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <soap:operation soapAction="http://tempuri.org/CorporateClientDeleteByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <soap:operation soapAction="http://tempuri.org/SearchCorporateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <soap:operation soapAction="http://tempuri.org/GetCoroprateChargeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CorporateClientWebServiceSoap12" type="tns:CorporateClientWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CorporateClientAdd">
+      <soap12:operation soapAction="http://tempuri.org/CorporateClientAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientUpdate">
+      <soap12:operation soapAction="http://tempuri.org/CorporateClientUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetAll">
+      <soap12:operation soapAction="http://tempuri.org/CorporateClientGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <soap12:operation soapAction="http://tempuri.org/CorporateClientGetByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <soap12:operation soapAction="http://tempuri.org/CorporateClientDeleteByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap12:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <soap12:operation soapAction="http://tempuri.org/SearchCorporateClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <soap12:operation soapAction="http://tempuri.org/GetCoroprateChargeByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CorporateClientWebServiceHttpGet" type="tns:CorporateClientWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CorporateClientGetAll">
+      <http:operation location="/CorporateClientGetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <http:operation location="/CorporateClientGetByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <http:operation location="/CorporateClientDeleteByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <http:operation location="/SearchCorporateClient" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <http:operation location="/GetCoroprateChargeByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CorporateClientWebServiceHttpPost" type="tns:CorporateClientWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CorporateClientGetAll">
+      <http:operation location="/CorporateClientGetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientGetByID">
+      <http:operation location="/CorporateClientGetByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorporateClientDeleteByID">
+      <http:operation location="/CorporateClientDeleteByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCorporateClient">
+      <http:operation location="/SearchCorporateClient" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoroprateChargeByID">
+      <http:operation location="/GetCoroprateChargeByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CorporateClientWebService">
+    <wsdl:port name="CorporateClientWebServiceSoap" binding="tns:CorporateClientWebServiceSoap">
+      <soap:address location="http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CorporateClientWebServiceSoap12" binding="tns:CorporateClientWebServiceSoap12">
+      <soap12:address location="http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CorporateClientWebServiceHttpGet" binding="tns:CorporateClientWebServiceHttpGet">
+      <http:address location="http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CorporateClientWebServiceHttpPost" binding="tns:CorporateClientWebServiceHttpPost">
+      <http:address location="http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

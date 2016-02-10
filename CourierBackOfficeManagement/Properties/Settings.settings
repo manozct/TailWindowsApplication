@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CourierBackOfficeManagement.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CourierBackOfficeManagement_Login_LoginWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/LoginWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_CorporateClient_CorporateClientWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_Location_LocationWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/LocationWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_Country_CountryWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CountryWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_GeneralCourier_GeneralCourierWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/GeneralCourierWebService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
