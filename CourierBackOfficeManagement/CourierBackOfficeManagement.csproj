@@ -48,8 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\RNGenerator.cs" />
     <Compile Include="BLL\SystemPortalID.cs" />
-    <Compile Include="BLL\SystemSettings.cs" />
+    <Compile Include="BLL\ClientTokenBuilder.cs" />
+    <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="frmContractGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContractGrid.Designer.cs">
+      <DependentUpon>frmContractGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGeneralCourier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,17 +100,47 @@
     <Compile Include="frmGridCorporateClient.Designer.cs">
       <DependentUpon>frmGridCorporateClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGridCorporateCourierEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGridCorporateCourierEntry.Designer.cs">
+      <DependentUpon>frmGridCorporateCourierEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGridCountry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGridCountry.Designer.cs">
       <DependentUpon>frmGridCountry.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGridExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGridExpense.Designer.cs">
+      <DependentUpon>frmGridExpense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGridGeneralCourier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGridGeneralCourier.Designer.cs">
       <DependentUpon>frmGridGeneralCourier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGridGeneralCourierPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGridGeneralCourierPrice.Designer.cs">
+      <DependentUpon>frmGridGeneralCourierPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGridLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGridLocation.Designer.cs">
+      <DependentUpon>frmGridLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGridState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGridState.Designer.cs">
+      <DependentUpon>frmGridState.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLocation.cs">
       <SubType>Form</SubType>
@@ -122,11 +160,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrder.cs">
+    <Compile Include="frmCorporateCourierEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrder.Designer.cs">
-      <DependentUpon>frmOrder.cs</DependentUpon>
+    <Compile Include="frmCorporateCourierEntry.Designer.cs">
+      <DependentUpon>frmCorporateCourierEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPopUpExpense.cs">
       <SubType>Form</SubType>
@@ -140,6 +178,14 @@
     <Compile Include="frmPopUpState.Designer.cs">
       <DependentUpon>frmPopUpState.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetLoginUser.cs" />
+    <Compile Include="GridViewSerial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmState.cs">
@@ -148,12 +194,47 @@
     <Compile Include="frmState.Designer.cs">
       <DependentUpon>frmState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CorporateClientLocation\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\CorporateClient\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\CorporateCourierEntry\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Country\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CourierReport\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ExpenseHead\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Expense\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GeneralCourierPrice\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -173,6 +254,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Logo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\State\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmContractGrid.resx">
+      <DependentUpon>frmContractGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralCourier.resx">
       <DependentUpon>frmGeneralCourier.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,11 +288,26 @@
     <EmbeddedResource Include="frmGridCorporateClient.resx">
       <DependentUpon>frmGridCorporateClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGridCorporateCourierEntry.resx">
+      <DependentUpon>frmGridCorporateCourierEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGridCountry.resx">
       <DependentUpon>frmGridCountry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGridExpense.resx">
+      <DependentUpon>frmGridExpense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGridGeneralCourier.resx">
       <DependentUpon>frmGridGeneralCourier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGridGeneralCourierPrice.resx">
+      <DependentUpon>frmGridGeneralCourierPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGridLocation.resx">
+      <DependentUpon>frmGridLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGridState.resx">
+      <DependentUpon>frmGridState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
@@ -209,8 +318,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrder.resx">
-      <DependentUpon>frmOrder.cs</DependentUpon>
+    <EmbeddedResource Include="frmCorporateCourierEntry.resx">
+      <DependentUpon>frmCorporateCourierEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPopUpExpense.resx">
       <DependentUpon>frmPopUpExpense.cs</DependentUpon>
@@ -218,15 +327,14 @@
     <EmbeddedResource Include="frmPopUpState.resx">
       <DependentUpon>frmPopUpState.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmState.resx">
       <DependentUpon>frmState.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +347,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\CorporateClientLocation\CorporateClientLocationInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorporateClientLocation\CorporateClientLocationWebService.wsdl" />
+    <None Include="Web References\CorporateClientLocation\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\CorporateClient\CorporateClientInfo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -247,11 +363,63 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\CorporateCourierEntry\CorporateClientInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorporateCourierEntry\CorporateClientLocationInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorporateCourierEntry\CorporateClientOrderInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CorporateCourierEntry\CorporateCourierEntryWebService.wsdl" />
+    <None Include="Web References\CorporateCourierEntry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\Country\CountryInfo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Country\CountryWebService.wsdl" />
     <None Include="Web References\Country\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CourierReport\CorporateClientInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CourierReport\CourierReportInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CourierReport\CourierReportWebService.wsdl" />
+    <None Include="Web References\CourierReport\LocationInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CourierReport\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ExpenseHead\ExpenseHeadInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ExpenseHead\ExpenseHeadWebService.wsdl" />
+    <None Include="Web References\ExpenseHead\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Expense\ExpenseInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Expense\ExpenseWebService.wsdl" />
+    <None Include="Web References\Expense\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GeneralCourierPrice\GeneralCourierPriceInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\GeneralCourierPrice\GeneralCourierPriceWebService.wsdl" />
+    <None Include="Web References\GeneralCourierPrice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -276,6 +444,19 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Logo\CompanyLogoAndAddressWebService.wsdl" />
+    <None Include="Web References\Logo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\State\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\State\StateInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\State\StateWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -284,6 +465,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CorporateClientLocationWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CorporateClientLocation\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/CorporateClientLocationWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_CorporateClientLocation_CorporateClientLocationWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CorporateClientWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\CorporateClient\</RelPath>
@@ -295,6 +487,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CourierBackOfficeManagement_CorporateClient_CorporateClientWebService</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CorporateCourierEntryWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CorporateCourierEntry\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/CorporateCourierEntryWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_CorporateCourierEntry_CorporateCourierEntryWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CountryWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Country\</RelPath>
@@ -305,6 +508,50 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CourierBackOfficeManagement_Country_CountryWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CourierReportWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CourierReport\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/CourierReportWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_CourierReport_CourierReportWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ExpenseHead\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_ExpenseHead_ExpenseHeadWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/ExpenseWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Expense\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/ExpenseWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_Expense_ExpenseWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/GeneralCourierPriceWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GeneralCourierPrice\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/GeneralCourierPriceWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_GeneralCourierPrice_GeneralCourierPriceWebService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/GeneralCourierWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -339,6 +586,28 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CourierBackOfficeManagement_Login_LoginWebService</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/StateWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\State\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/StateWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_State_StateWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Logo\</RelPath>
+      <UpdateFromURL>http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CourierBackOfficeManagement_Logo_LogoWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -357,6 +626,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\GeneralCourier\GeneralCourierWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CorporateClientLocation\CorporateClientLocationWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\State\StateWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CorporateCourierEntry\CorporateCourierEntryWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\ExpenseHead\ExpenseHeadWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\Expense\ExpenseWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\GeneralCourierPrice\GeneralCourierPriceWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\add.png" />
+    <Content Include="images\background.png" />
+    <Content Include="images\btn_edit.png" />
+    <Content Include="images\button_cancel.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\excel-icon.png" />
+    <Content Include="images\login.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\printer-icon.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\save.png" />
+    <Content Include="images\search.png" />
+    <None Include="Web References\Logo\CompanyLogoAndAddressWebService.disco" />
+    <None Include="Web References\CourierReport\CourierReportWebService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

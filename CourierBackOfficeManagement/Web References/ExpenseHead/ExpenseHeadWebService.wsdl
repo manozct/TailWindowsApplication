@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExpenseHeadAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:ExpenseHeadInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExpenseHeadInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseHeadID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseHead" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EditedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsModified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EditedDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExpenseHeadAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExpenseHeadAddResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:ExpenseHeadInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExpenseHeadUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadGetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExpenseHeadGetAllResult" type="tns:ArrayOfExpenseHeadInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExpenseHeadInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExpenseHeadInfo" nillable="true" type="tns:ExpenseHeadInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExpenseHeadGetByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExpenseHeadID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadGetByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExpenseHeadGetByIDResult" type="tns:ExpenseHeadInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadDeleteByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExpenseHeadID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpenseHeadDeleteByIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="current" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BindExpenseHead">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BindExpenseHeadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BindExpenseHeadResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfExpenseHeadInfo" nillable="true" type="tns:ArrayOfExpenseHeadInfo" />
+      <s:element name="ExpenseHeadInfo" nillable="true" type="tns:ExpenseHeadInfo" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExpenseHeadAddSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadAdd" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadAddSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadGetAll" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadGetByID" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadDeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpenseHeadDeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPageData" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadSoapIn">
+    <wsdl:part name="parameters" element="tns:BindExpenseHead" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadSoapOut">
+    <wsdl:part name="parameters" element="tns:BindExpenseHeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfExpenseHeadInfo" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDHttpGetIn">
+    <wsdl:part name="ExpenseHeadID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ExpenseHeadInfo" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDHttpGetIn">
+    <wsdl:part name="ExpenseHeadID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDHttpGetOut" />
+  <wsdl:message name="GetPageDataHttpGetIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadHttpGetIn">
+    <wsdl:part name="text" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfExpenseHeadInfo" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDHttpPostIn">
+    <wsdl:part name="ExpenseHeadID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadGetByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ExpenseHeadInfo" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDHttpPostIn">
+    <wsdl:part name="ExpenseHeadID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExpenseHeadDeleteByIDHttpPostOut" />
+  <wsdl:message name="GetPageDataHttpPostIn">
+    <wsdl:part name="current" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPageDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadHttpPostIn">
+    <wsdl:part name="text" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BindExpenseHeadHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="ExpenseHeadWebServiceSoap">
+    <wsdl:operation name="ExpenseHeadAdd">
+      <wsdl:input message="tns:ExpenseHeadAddSoapIn" />
+      <wsdl:output message="tns:ExpenseHeadAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadUpdate">
+      <wsdl:input message="tns:ExpenseHeadUpdateSoapIn" />
+      <wsdl:output message="tns:ExpenseHeadUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <wsdl:input message="tns:ExpenseHeadGetAllSoapIn" />
+      <wsdl:output message="tns:ExpenseHeadGetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <wsdl:input message="tns:ExpenseHeadGetByIDSoapIn" />
+      <wsdl:output message="tns:ExpenseHeadGetByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <wsdl:input message="tns:ExpenseHeadDeleteByIDSoapIn" />
+      <wsdl:output message="tns:ExpenseHeadDeleteByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataSoapIn" />
+      <wsdl:output message="tns:GetPageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <wsdl:input message="tns:BindExpenseHeadSoapIn" />
+      <wsdl:output message="tns:BindExpenseHeadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ExpenseHeadWebServiceHttpGet">
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <wsdl:input message="tns:ExpenseHeadGetAllHttpGetIn" />
+      <wsdl:output message="tns:ExpenseHeadGetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <wsdl:input message="tns:ExpenseHeadGetByIDHttpGetIn" />
+      <wsdl:output message="tns:ExpenseHeadGetByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <wsdl:input message="tns:ExpenseHeadDeleteByIDHttpGetIn" />
+      <wsdl:output message="tns:ExpenseHeadDeleteByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpGetIn" />
+      <wsdl:output message="tns:GetPageDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <wsdl:input message="tns:BindExpenseHeadHttpGetIn" />
+      <wsdl:output message="tns:BindExpenseHeadHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ExpenseHeadWebServiceHttpPost">
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <wsdl:input message="tns:ExpenseHeadGetAllHttpPostIn" />
+      <wsdl:output message="tns:ExpenseHeadGetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <wsdl:input message="tns:ExpenseHeadGetByIDHttpPostIn" />
+      <wsdl:output message="tns:ExpenseHeadGetByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <wsdl:input message="tns:ExpenseHeadDeleteByIDHttpPostIn" />
+      <wsdl:output message="tns:ExpenseHeadDeleteByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <wsdl:input message="tns:GetPageDataHttpPostIn" />
+      <wsdl:output message="tns:GetPageDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <wsdl:input message="tns:BindExpenseHeadHttpPostIn" />
+      <wsdl:output message="tns:BindExpenseHeadHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExpenseHeadWebServiceSoap" type="tns:ExpenseHeadWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExpenseHeadAdd">
+      <soap:operation soapAction="http://tempuri.org/ExpenseHeadAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadUpdate">
+      <soap:operation soapAction="http://tempuri.org/ExpenseHeadUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <soap:operation soapAction="http://tempuri.org/ExpenseHeadGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <soap:operation soapAction="http://tempuri.org/ExpenseHeadGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <soap:operation soapAction="http://tempuri.org/ExpenseHeadDeleteByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <soap:operation soapAction="http://tempuri.org/BindExpenseHead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExpenseHeadWebServiceSoap12" type="tns:ExpenseHeadWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExpenseHeadAdd">
+      <soap12:operation soapAction="http://tempuri.org/ExpenseHeadAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ExpenseHeadUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <soap12:operation soapAction="http://tempuri.org/ExpenseHeadGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <soap12:operation soapAction="http://tempuri.org/ExpenseHeadGetByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <soap12:operation soapAction="http://tempuri.org/ExpenseHeadDeleteByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <soap12:operation soapAction="http://tempuri.org/GetPageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <soap12:operation soapAction="http://tempuri.org/BindExpenseHead" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExpenseHeadWebServiceHttpGet" type="tns:ExpenseHeadWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <http:operation location="/ExpenseHeadGetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <http:operation location="/ExpenseHeadGetByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <http:operation location="/ExpenseHeadDeleteByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <http:operation location="/BindExpenseHead" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExpenseHeadWebServiceHttpPost" type="tns:ExpenseHeadWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ExpenseHeadGetAll">
+      <http:operation location="/ExpenseHeadGetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadGetByID">
+      <http:operation location="/ExpenseHeadGetByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpenseHeadDeleteByID">
+      <http:operation location="/ExpenseHeadDeleteByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageData">
+      <http:operation location="/GetPageData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindExpenseHead">
+      <http:operation location="/BindExpenseHead" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExpenseHeadWebService">
+    <wsdl:port name="ExpenseHeadWebServiceSoap" binding="tns:ExpenseHeadWebServiceSoap">
+      <soap:address location="http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExpenseHeadWebServiceSoap12" binding="tns:ExpenseHeadWebServiceSoap12">
+      <soap12:address location="http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExpenseHeadWebServiceHttpGet" binding="tns:ExpenseHeadWebServiceHttpGet">
+      <http:address location="http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExpenseHeadWebServiceHttpPost" binding="tns:ExpenseHeadWebServiceHttpPost">
+      <http:address location="http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

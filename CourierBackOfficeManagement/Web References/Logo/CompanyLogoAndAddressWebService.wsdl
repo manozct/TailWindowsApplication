@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLogoPath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="portalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secureToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogoPathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLogoPathResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="portalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLogoPathSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLogoPath" />
+  </wsdl:message>
+  <wsdl:message name="GetLogoPathSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLogoPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLogoPathHttpGetIn">
+    <wsdl:part name="userModuleID" type="s:string" />
+    <wsdl:part name="portalID" type="s:string" />
+    <wsdl:part name="CultureCode" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="secureToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLogoPathHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressHttpGetIn">
+    <wsdl:part name="userModuleID" type="s:string" />
+    <wsdl:part name="portalID" type="s:string" />
+    <wsdl:part name="CultureCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLogoPathHttpPostIn">
+    <wsdl:part name="userModuleID" type="s:string" />
+    <wsdl:part name="portalID" type="s:string" />
+    <wsdl:part name="CultureCode" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="secureToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLogoPathHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressHttpPostIn">
+    <wsdl:part name="userModuleID" type="s:string" />
+    <wsdl:part name="portalID" type="s:string" />
+    <wsdl:part name="CultureCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CompanyLogoAndAddressWebServiceSoap">
+    <wsdl:operation name="GetLogoPath">
+      <wsdl:input message="tns:GetLogoPathSoapIn" />
+      <wsdl:output message="tns:GetLogoPathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <wsdl:input message="tns:GetCompanyAddressSoapIn" />
+      <wsdl:output message="tns:GetCompanyAddressSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CompanyLogoAndAddressWebServiceHttpGet">
+    <wsdl:operation name="GetLogoPath">
+      <wsdl:input message="tns:GetLogoPathHttpGetIn" />
+      <wsdl:output message="tns:GetLogoPathHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <wsdl:input message="tns:GetCompanyAddressHttpGetIn" />
+      <wsdl:output message="tns:GetCompanyAddressHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CompanyLogoAndAddressWebServiceHttpPost">
+    <wsdl:operation name="GetLogoPath">
+      <wsdl:input message="tns:GetLogoPathHttpPostIn" />
+      <wsdl:output message="tns:GetLogoPathHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <wsdl:input message="tns:GetCompanyAddressHttpPostIn" />
+      <wsdl:output message="tns:GetCompanyAddressHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CompanyLogoAndAddressWebServiceSoap" type="tns:CompanyLogoAndAddressWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLogoPath">
+      <soap:operation soapAction="http://tempuri.org/GetLogoPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CompanyLogoAndAddressWebServiceSoap12" type="tns:CompanyLogoAndAddressWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLogoPath">
+      <soap12:operation soapAction="http://tempuri.org/GetLogoPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CompanyLogoAndAddressWebServiceHttpGet" type="tns:CompanyLogoAndAddressWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetLogoPath">
+      <http:operation location="/GetLogoPath" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <http:operation location="/GetCompanyAddress" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CompanyLogoAndAddressWebServiceHttpPost" type="tns:CompanyLogoAndAddressWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetLogoPath">
+      <http:operation location="/GetLogoPath" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAddress">
+      <http:operation location="/GetCompanyAddress" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CompanyLogoAndAddressWebService">
+    <wsdl:port name="CompanyLogoAndAddressWebServiceSoap" binding="tns:CompanyLogoAndAddressWebServiceSoap">
+      <soap:address location="http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CompanyLogoAndAddressWebServiceSoap12" binding="tns:CompanyLogoAndAddressWebServiceSoap12">
+      <soap12:address location="http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CompanyLogoAndAddressWebServiceHttpGet" binding="tns:CompanyLogoAndAddressWebServiceHttpGet">
+      <http:address location="http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CompanyLogoAndAddressWebServiceHttpPost" binding="tns:CompanyLogoAndAddressWebServiceHttpPost">
+      <http:address location="http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

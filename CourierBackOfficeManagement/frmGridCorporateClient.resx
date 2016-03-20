@@ -117,46 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAA1ZJREFUOE99
+        0klMU0EYwPEBRRGjxuXmwQPRGA+aGOMBK5WySBVlM6IVpNJaKhIVNEYjrheN0WiIXjy4V1AgFVCUIFIU
+        KS2L0EgBaUVBoHZ5XV/fOjO+1mKMMR5+eXlvvvxnMnmg0o7/6YKFnJXfOX1P1W1X3LDBeZV2FCUIr90W
+        ODgMMMYA3PyB/0lldMQqTX5H8RBFyQ0OzTlLcMOVCXZBaO2WwD4TuGbDv12e4OecHaVWnbUyEmW3K0tp
+        Ij2HrQipRzi+sMdjPdTnPn3hC7Py+iSMsbORwJVJHHbxK7e0pM9bUNBJNBb2+KcUJjpYPMRD9WeMQ4pH
+        IFIMUO6iLuLRxVE6/sdM4NI3BCos3GJFl/t0gSEwVmTioNrMw1Lzr6fSjHGI2gyRqp9yyz8Q9yuG6Xgb
+        EwmcscBoWZtz5149OSXvh1DZx7D72gl9Xou9Il9PeuUDCKkGOK6ww20u6vQcKR9k4s9ZYMz0TKCkl1yU
+        2eT4uK8bwnw9w8laiftqI7lud7N9ieyd36E0UmRei+tO6Udq/XEzH3dqFIMKwTQdCcg7Aom5b0l6jx6i
+        PTp/m9JAri8bQlEHjcHozAZb5a7XTtmxQRgb+lY+jEHIyREMJmcCuS9dB3J0EGW1MnzOK/dthYGOK/2E
+        wf8cG8TgezASSKu2lexsRSjjFcPvqCdu7P9Ax6j6hf/gL8peOEfexa4QrD5oYJeMB1BUOJDTHMjOeM3w
+        0hccL9V6q/J01HJ5LwZ/2t8No4W5TclPnG0pVa5xqcZ21Opi54cDWc3kyrQa71RqI0LJtcHRbVpvYV4H
+        FyczYhCy14BCM6uTq91PUrQsu7WeoTJqiDIrwcaFA9k6dm7SI+fV1HqW21LHsWKNvzf1mfdUeq03cXtj
+        YF16nS83SePRip/StOQ5D5OrfebspkDCmA/+uoPM9whsbSTXCEMtEi3HiZ7xUKRhHKLHlGlzFWMQPaYt
+        oiqWF9chJKkJTqXU+sty2/mFY4HIJWa8w2C7Ds1OrQ9uTHxINGypo1mxFqGEpxgnVGMsqkUoqYGHYo1v
+        XNjkxLY33OKcDgx+B6TtOCxdh6JSmphlonuu3ZvuOJ9vfuCeTnzo8YnuunqE9/MSLbk2rYWPkeqQcGoM
+        vvhDAQx+AtOml1cgT6plAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="clmContract.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="LCDContactPerson.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="clmEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PhoneNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EmailAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="HOAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LCDepartment.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LCDContactPersonPhone.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LCDContactPersonEmail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SLA.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Contract.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EditButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DeleteButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="clmDelete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="corporateClientInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="dataGridViewImageColumn8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANpJREFUOE+l
+        jDEKwkAURNNrZ+cBBDuvYmudQEDSprPJATyIJ7C1NZWChRCPEAja5zsfsmH+ZrfRD4/MbGYmEZEolyQR
+        8AKL0H/FmDRNH0CIJ1hhYMk5ZvKAwhzchgGftZ83JgRKG/ChkTP/98N3CoY4gR13uLynYBSXd/DAdghw
+        eKJx0YFZrMQaFx5QYiXWONMxJlZijTMdY2Ilpe/7/wbatv19IMsyaZpG9RtPpmMMAq+u6yYDZVlKXdeq
+        ry7rMAaBQ1EU40BVVaPO81y/R84rxiiuEMLPikjyBZy/rlfYcRfWAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="dataGridViewImageColumn9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANpJREFUOE+l
+        jDEKwkAURNNrZ+cBBDuvYmudQEDSprPJATyIJ7C1NZWChRCPEAja5zsfsmH+ZrfRD4/MbGYmEZEolyQR
+        8AKL0H/FmDRNH0CIJ1hhYMk5ZvKAwhzchgGftZ83JgRKG/ChkTP/98N3CoY4gR13uLynYBSXd/DAdghw
+        eKJx0YFZrMQaFx5QYiXWONMxJlZijTMdY2Ilpe/7/wbatv19IMsyaZpG9RtPpmMMAq+u6yYDZVlKXdeq
+        ry7rMAaBQ1EU40BVVaPO81y/R84rxiiuEMLPikjyBZy/rlfYcRfWAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

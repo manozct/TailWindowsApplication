@@ -17,5 +17,29 @@
     <Setting Name="CourierBackOfficeManagement_GeneralCourier_GeneralCourierWebService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:44719/BackEndWebService/GeneralCourierWebService.asmx</Value>
     </Setting>
+    <Setting Name="CourierBackOfficeManagement_CorporateClientLocation_CorporateClientLocationWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CorporateClientLocationWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_State_StateWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/StateWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_CorporateCourierEntry_CorporateCourierEntryWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CorporateCourierEntryWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_ExpenseHead_ExpenseHeadWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_Expense_ExpenseWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/ExpenseWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_GeneralCourierPrice_GeneralCourierPriceWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/GeneralCourierPriceWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_CourierReport_CourierReportWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CourierReportWebService.asmx</Value>
+    </Setting>
+    <Setting Name="CourierBackOfficeManagement_Logo_LogoWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

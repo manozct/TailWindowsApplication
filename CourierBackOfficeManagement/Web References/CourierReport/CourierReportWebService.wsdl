@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetClientList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientListResult" type="tns:ArrayOfCorporateClientInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCorporateClientInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CorporateClientInfo" nillable="true" type="tns:CorporateClientInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorporateClientInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CorporateClientID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPerson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LCDContactPersonEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SLA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EditedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsModified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocationList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationListResult" type="tns:ArrayOfLocationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLocationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocationInfo" nillable="true" type="tns:LocationInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocationInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EditedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeletedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EditedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsModified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStaffList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStaffListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStaffListResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCourierReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CourierReportInfo" nillable="true" type="tns:CourierReportInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CourierReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PickupFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DropTo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WeightOfPackage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoOfPackage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CourierCharge" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Receiver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Staff" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowTotal" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCourierReportList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SelectedValue" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCourierReportListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCourierReportListResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportListByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DdlCltVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DdlLocVal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StrDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportListByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterCourierReportListByLocationResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportListByClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectedValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StrDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportListByClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterCourierReportListByClientResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchedKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchedKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StrDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchedKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSearchedKeyResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportOnMenuBtnClick">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BtnID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportOnMenuBtnClickResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportOnMenuBtnClickResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportByStaff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DdlCltVal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DdlLocVal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DdlstfVal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StrDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterCourierReportByStaffResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterCourierReportByStaffResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCourierReportByDateInterval">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StrDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCourierReportByDateIntervalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCourierReportByDateIntervalResult" type="tns:ArrayOfCourierReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCorporateClientInfo" nillable="true" type="tns:ArrayOfCorporateClientInfo" />
+      <s:element name="ArrayOfLocationInfo" nillable="true" type="tns:ArrayOfLocationInfo" />
+      <s:element name="ArrayOfCourierReportInfo" nillable="true" type="tns:ArrayOfCourierReportInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetClientListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientList" />
+  </wsdl:message>
+  <wsdl:message name="GetClientListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationList" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStaffList" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStaffListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCourierReportList" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCourierReportListResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportListByLocation" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportListByLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportListByClient" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportListByClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchedKey" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchedKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportOnMenuBtnClick" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportOnMenuBtnClickResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportByStaff" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterCourierReportByStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCourierReportByDateInterval" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCourierReportByDateIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientListHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClientListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLocationInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="SelectedValue" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="DdlCltVal" type="s:string" />
+    <wsdl:part name="DdlLocVal" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="selectedValue" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeyHttpGetIn">
+    <wsdl:part name="SearchedKey" type="s:string" />
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="BtnID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="DdlCltVal" type="s:string" />
+    <wsdl:part name="DdlLocVal" type="s:string" />
+    <wsdl:part name="DdlstfVal" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalHttpGetIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetClientListHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClientListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCorporateClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLocationInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="SelectedValue" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="DdlCltVal" type="s:string" />
+    <wsdl:part name="DdlLocVal" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByLocationHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="selectedValue" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportListByClientHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeyHttpPostIn">
+    <wsdl:part name="SearchedKey" type="s:string" />
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchedKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="BtnID" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetReportOnMenuBtnClickHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="DdlCltVal" type="s:string" />
+    <wsdl:part name="DdlLocVal" type="s:string" />
+    <wsdl:part name="DdlstfVal" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterCourierReportByStaffHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalHttpPostIn">
+    <wsdl:part name="Offset" type="s:string" />
+    <wsdl:part name="Limit" type="s:string" />
+    <wsdl:part name="StrDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCourierReportByDateIntervalHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCourierReportInfo" />
+  </wsdl:message>
+  <wsdl:portType name="CourierReportWebServiceSoap">
+    <wsdl:operation name="GetClientList">
+      <wsdl:input message="tns:GetClientListSoapIn" />
+      <wsdl:output message="tns:GetClientListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <wsdl:input message="tns:GetLocationListSoapIn" />
+      <wsdl:output message="tns:GetLocationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <wsdl:input message="tns:GetStaffListSoapIn" />
+      <wsdl:output message="tns:GetStaffListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <wsdl:input message="tns:GetCourierReportListSoapIn" />
+      <wsdl:output message="tns:GetCourierReportListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <wsdl:input message="tns:FilterCourierReportListByLocationSoapIn" />
+      <wsdl:output message="tns:FilterCourierReportListByLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <wsdl:input message="tns:FilterCourierReportListByClientSoapIn" />
+      <wsdl:output message="tns:FilterCourierReportListByClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <wsdl:input message="tns:GetSearchedKeySoapIn" />
+      <wsdl:output message="tns:GetSearchedKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <wsdl:input message="tns:GetReportOnMenuBtnClickSoapIn" />
+      <wsdl:output message="tns:GetReportOnMenuBtnClickSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <wsdl:input message="tns:FilterCourierReportByStaffSoapIn" />
+      <wsdl:output message="tns:FilterCourierReportByStaffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <wsdl:input message="tns:GetCourierReportByDateIntervalSoapIn" />
+      <wsdl:output message="tns:GetCourierReportByDateIntervalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CourierReportWebServiceHttpGet">
+    <wsdl:operation name="GetClientList">
+      <wsdl:input message="tns:GetClientListHttpGetIn" />
+      <wsdl:output message="tns:GetClientListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <wsdl:input message="tns:GetLocationListHttpGetIn" />
+      <wsdl:output message="tns:GetLocationListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <wsdl:input message="tns:GetStaffListHttpGetIn" />
+      <wsdl:output message="tns:GetStaffListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <wsdl:input message="tns:GetCourierReportListHttpGetIn" />
+      <wsdl:output message="tns:GetCourierReportListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <wsdl:input message="tns:FilterCourierReportListByLocationHttpGetIn" />
+      <wsdl:output message="tns:FilterCourierReportListByLocationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <wsdl:input message="tns:FilterCourierReportListByClientHttpGetIn" />
+      <wsdl:output message="tns:FilterCourierReportListByClientHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <wsdl:input message="tns:GetSearchedKeyHttpGetIn" />
+      <wsdl:output message="tns:GetSearchedKeyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <wsdl:input message="tns:GetReportOnMenuBtnClickHttpGetIn" />
+      <wsdl:output message="tns:GetReportOnMenuBtnClickHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <wsdl:input message="tns:FilterCourierReportByStaffHttpGetIn" />
+      <wsdl:output message="tns:FilterCourierReportByStaffHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <wsdl:input message="tns:GetCourierReportByDateIntervalHttpGetIn" />
+      <wsdl:output message="tns:GetCourierReportByDateIntervalHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CourierReportWebServiceHttpPost">
+    <wsdl:operation name="GetClientList">
+      <wsdl:input message="tns:GetClientListHttpPostIn" />
+      <wsdl:output message="tns:GetClientListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <wsdl:input message="tns:GetLocationListHttpPostIn" />
+      <wsdl:output message="tns:GetLocationListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <wsdl:input message="tns:GetStaffListHttpPostIn" />
+      <wsdl:output message="tns:GetStaffListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <wsdl:input message="tns:GetCourierReportListHttpPostIn" />
+      <wsdl:output message="tns:GetCourierReportListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <wsdl:input message="tns:FilterCourierReportListByLocationHttpPostIn" />
+      <wsdl:output message="tns:FilterCourierReportListByLocationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <wsdl:input message="tns:FilterCourierReportListByClientHttpPostIn" />
+      <wsdl:output message="tns:FilterCourierReportListByClientHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <wsdl:input message="tns:GetSearchedKeyHttpPostIn" />
+      <wsdl:output message="tns:GetSearchedKeyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <wsdl:input message="tns:GetReportOnMenuBtnClickHttpPostIn" />
+      <wsdl:output message="tns:GetReportOnMenuBtnClickHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <wsdl:input message="tns:FilterCourierReportByStaffHttpPostIn" />
+      <wsdl:output message="tns:FilterCourierReportByStaffHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <wsdl:input message="tns:GetCourierReportByDateIntervalHttpPostIn" />
+      <wsdl:output message="tns:GetCourierReportByDateIntervalHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CourierReportWebServiceSoap" type="tns:CourierReportWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientList">
+      <soap:operation soapAction="http://tempuri.org/GetClientList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <soap:operation soapAction="http://tempuri.org/GetLocationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <soap:operation soapAction="http://tempuri.org/GetStaffList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <soap:operation soapAction="http://tempuri.org/GetCourierReportList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <soap:operation soapAction="http://tempuri.org/FilterCourierReportListByLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <soap:operation soapAction="http://tempuri.org/FilterCourierReportListByClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <soap:operation soapAction="http://tempuri.org/GetSearchedKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <soap:operation soapAction="http://tempuri.org/GetReportOnMenuBtnClick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <soap:operation soapAction="http://tempuri.org/FilterCourierReportByStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <soap:operation soapAction="http://tempuri.org/GetCourierReportByDateInterval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CourierReportWebServiceSoap12" type="tns:CourierReportWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientList">
+      <soap12:operation soapAction="http://tempuri.org/GetClientList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <soap12:operation soapAction="http://tempuri.org/GetLocationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <soap12:operation soapAction="http://tempuri.org/GetStaffList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <soap12:operation soapAction="http://tempuri.org/GetCourierReportList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <soap12:operation soapAction="http://tempuri.org/FilterCourierReportListByLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <soap12:operation soapAction="http://tempuri.org/FilterCourierReportListByClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <soap12:operation soapAction="http://tempuri.org/GetSearchedKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <soap12:operation soapAction="http://tempuri.org/GetReportOnMenuBtnClick" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <soap12:operation soapAction="http://tempuri.org/FilterCourierReportByStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <soap12:operation soapAction="http://tempuri.org/GetCourierReportByDateInterval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CourierReportWebServiceHttpGet" type="tns:CourierReportWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetClientList">
+      <http:operation location="/GetClientList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <http:operation location="/GetLocationList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <http:operation location="/GetStaffList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <http:operation location="/GetCourierReportList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <http:operation location="/FilterCourierReportListByLocation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <http:operation location="/FilterCourierReportListByClient" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <http:operation location="/GetSearchedKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <http:operation location="/GetReportOnMenuBtnClick" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <http:operation location="/FilterCourierReportByStaff" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <http:operation location="/GetCourierReportByDateInterval" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CourierReportWebServiceHttpPost" type="tns:CourierReportWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetClientList">
+      <http:operation location="/GetClientList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationList">
+      <http:operation location="/GetLocationList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffList">
+      <http:operation location="/GetStaffList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportList">
+      <http:operation location="/GetCourierReportList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByLocation">
+      <http:operation location="/FilterCourierReportListByLocation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportListByClient">
+      <http:operation location="/FilterCourierReportListByClient" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchedKey">
+      <http:operation location="/GetSearchedKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportOnMenuBtnClick">
+      <http:operation location="/GetReportOnMenuBtnClick" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCourierReportByStaff">
+      <http:operation location="/FilterCourierReportByStaff" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourierReportByDateInterval">
+      <http:operation location="/GetCourierReportByDateInterval" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CourierReportWebService">
+    <wsdl:port name="CourierReportWebServiceSoap" binding="tns:CourierReportWebServiceSoap">
+      <soap:address location="http://localhost:44719/BackEndWebService/CourierReportWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CourierReportWebServiceSoap12" binding="tns:CourierReportWebServiceSoap12">
+      <soap12:address location="http://localhost:44719/BackEndWebService/CourierReportWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CourierReportWebServiceHttpGet" binding="tns:CourierReportWebServiceHttpGet">
+      <http:address location="http://localhost:44719/BackEndWebService/CourierReportWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CourierReportWebServiceHttpPost" binding="tns:CourierReportWebServiceHttpPost">
+      <http:address location="http://localhost:44719/BackEndWebService/CourierReportWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

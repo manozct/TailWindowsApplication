@@ -2,202 +2,140 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourierBackOfficeManagement.CorporateClient;
-
-
+using CourierManagement;
 
 namespace CourierBackOfficeManagement
 {
     public partial class frmGridCorporateClient : Form
     {
-        public int CorClientID { get; private set; }
-        public string DeletedBy { get; private set; }
-        
         public frmGridCorporateClient()
         {
-            
             InitializeComponent();
-            placeholder();
+            dataGridViewCorporateClient.Columns["clmContract"].Width = 80;
+            dataGridViewCorporateClient.Columns["clmEdit"].Width = 40;
+            dataGridViewCorporateClient.Columns["clmDelete"].Width = 90;
+            ComboBoxItem objCombo = new ComboBoxItem();
+            cmbShowRows.DataSource = objCombo.ItemOfCmbShowRows();
+        }         
 
-
-        }
-
-
-        private void dataGridViewCorporateClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frmGridCorporateClient_Load(object sender, EventArgs e)
         {
-
-
-
-
-
-            //foreach (DataGridViewRow row in dataGridViewCorporateClient.SelectedRows)
-            //{
-            //    string value1 = row.Cells[0].Value.ToString();
-            //    string value2 = row.Cells[1].Value.ToString();
-            //}
-
-
-
-
-
-            if (e.RowIndex >= 0)
-            {
-                if (Convert.ToString(dataGridViewCorporateClient.Columns[e.ColumnIndex].Name) == "Contract")
-                {
-                    frmContract objContract = new frmContract();
-
-                    objContract.Show();
-
-
-                }
-
-            }
-
-
-
-
-            if (e.ColumnIndex == dataGridViewCorporateClient.Columns["DeleteButton"].Index)
-            {
-
-
-
-                CorporateClient.CorporateClientWebService obj = new CorporateClient.CorporateClientWebService();
-                CorporateClientInfo objInfo = new CorporateClientInfo();
-                objInfo.CorporateClientID = Convert.ToInt32(dataGridViewCorporateClient.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (DialogResult.Yes == MessageBox.Show("Do You Want Delete ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
-                {
-                    obj.CorporateClientDeleteByID(objInfo.CorporateClientID, DeletedBy, SystemSettings.AppToken);
-
-                }
-                LoadCorporateClient();
-                MessageBox.Show("Data Deleted Successfully");
-
-            }
-
-
-
-            if (e.ColumnIndex == dataGridViewCorporateClient.Columns["EditButton"].Index)
-            {
-
-
-
-                //CorporateClient.CorporateClientWebService obj = new CorporateClient.CorporateClientWebService();
-                //CorporateClientInfo objInfo = new CorporateClientInfo();
-                //objInfo.CorporateClientID = Convert.ToInt32(dataGridViewCorporateClient.Rows[e.RowIndex].Cells[0].Value.ToString());
-                //obj.CorporateClientGetByID(objInfo.CorporateClientID, SystemSettings.AppToken);
-               
-
-
-                frmCorporateClient objCorporateClient = new frmCorporateClient();
-                objCorporateClient.lblCorporateClientId.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[0].Value.ToString();
-                objCorporateClient.txtCorporateName.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[1].Value.ToString();
-                objCorporateClient.txtCorporateName.ForeColor = Color.Black;
-                objCorporateClient.txtLCDContractPerson.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[2].Value.ToString();
-                objCorporateClient.txtLCDContractPerson.ForeColor = Color.Black;
-                objCorporateClient.txtContactPersonMobile.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[3].Value.ToString();
-                objCorporateClient.txtContactPersonMobile.ForeColor = Color.Black;
-                objCorporateClient.rchtxtAddress.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[4].Value.ToString();
-                objCorporateClient.rchtxtAddress.ForeColor = Color.Black;
-                objCorporateClient.txtPhoneNumber.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[5].Value.ToString();
-                objCorporateClient.txtPhoneNumber.ForeColor = Color.Black;
-                objCorporateClient.txtCorporateEmail.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[6].Value.ToString();
-                objCorporateClient.txtCorporateEmail.ForeColor = Color.Black;
-                objCorporateClient.txtHeadOfficeAddress.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[7].Value.ToString();
-                objCorporateClient.txtHeadOfficeAddress.ForeColor = Color.Black;
-                objCorporateClient.txtLCDepartment.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[8].Value.ToString();
-                objCorporateClient.txtLCDepartment.ForeColor = Color.Black;
-                objCorporateClient.txtContactPersonPhone.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[9].Value.ToString();
-                objCorporateClient.txtContactPersonPhone.ForeColor = Color.Black;
-                objCorporateClient.txtContactPersonEmail.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[10].Value.ToString();
-                objCorporateClient.txtContactPersonEmail.ForeColor = Color.Black;
-                objCorporateClient.rchtxtSLA.Text = this.dataGridViewCorporateClient.CurrentRow.Cells[11].Value.ToString();
-                objCorporateClient.rchtxtSLA.ForeColor = Color.Black;
-                objCorporateClient.ShowDialog();
-
-
-
-
-
-
-
-            }
-
-        }
-
-        public void frmGridCorporateClient_Load(object sender, EventArgs e)
-        {
+            dataGridViewCorporateClient.AutoGenerateColumns = false;
             LoadCorporateClient();
-
+            dataGridViewCorporateClient.ClearSelection();
+        }
+        public void LoadCorporateClient()
+        {
+            CorporateClient.CorporateClientWebService objWebService = new CorporateClient.CorporateClientWebService();
+            dataGridViewCorporateClient.DataSource = objWebService.CorporateClientGetAll(TokenCleintEncrypt.Encrypt(ClientTokenBuilder.BuildTokens()));
         }
 
-        private void LoadCorporateClient()
+        private void dataGridViewCorporateClient_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            CorporateClient.CorporateClientWebService obj = new CorporateClient.CorporateClientWebService();
-
-            corporateClientInfoBindingSource.DataSource = obj.CorporateClientGetAll(SystemSettings.AppToken);
-
+            GridViewSerial objSerial = new GridViewSerial();
+           objSerial.LoadSerial(dataGridViewCorporateClient);
         }
 
         private void btnAddNewCorporate_Click(object sender, EventArgs e)
         {
-            frmCorporateClient objCorporateClient = new frmCorporateClient();
+            frmCorporateClient objFrm = new frmCorporateClient();
+            objFrm.ShowDialog();
+            dataGridViewCorporateClient.DataSource = null;
+            LoadCorporateClient();
             
-            objCorporateClient.Show();
-            
-
-
-
-        }
-        public void placeholder()
-        {
-            txtSearch.Text = "Search Name";
-            txtSearch.ForeColor = Color.Gray;
         }
 
-        private void lblShowRows_Click(object sender, EventArgs e)
+        private void dataGridViewCorporateClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            txtSearch.Text = "";
-            txtSearch.ForeColor = Color.Black;
-
-        }
-
-        private void txtSearch_Leave(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "")
+            if (e.ColumnIndex == dataGridViewCorporateClient.Columns["clmEdit"].Index)
             {
-                txtSearch.Text = "Search Name";
-                txtSearch.ForeColor = Color.Gray;
+                int x = Convert.ToInt32(dataGridViewCorporateClient.CurrentRow.Cells["clmCorporateClientID"].Value.ToString());
+                frmCorporateClient objFrm = new frmCorporateClient(x);
+                objFrm.ShowDialog();
+                dataGridViewCorporateClient.DataSource = null;
+                LoadCorporateClient();
+            }
+            if (e.ColumnIndex == dataGridViewCorporateClient.Columns["clmDelete"].Index)
+            {
+
+                try
+                {
+
+                    CorporateClient.CorporateClientWebService objWebService = new CorporateClient.CorporateClientWebService();
+                    CorporateClientInfo objInfo = new CorporateClientInfo();
+                    objInfo.CorporateClientID = Convert.ToInt32(dataGridViewCorporateClient.Rows[e.RowIndex].Cells["clmCorporateClientID"].Value.ToString());
+                    if (DialogResult.Yes == MessageBox.Show("Do You Want Delete ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                    {
+                        string deletedBy = GetLoginUser.UserName;
+                        objWebService.CorporateClientDeleteByID(objInfo.CorporateClientID,deletedBy, TokenCleintEncrypt.Encrypt(ClientTokenBuilder.BuildTokens()));
+                        MessageBox.Show("Data Deleted Successfully");
+                        LoadCorporateClient();
+
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+
+            }
+            if (e.ColumnIndex == dataGridViewCorporateClient.Columns["clmContract"].Index)
+            {
+                int x = Convert.ToInt32(dataGridViewCorporateClient.CurrentRow.Cells["clmCorporateClientID"].Value.ToString());
+                frmContractGrid objGridContract = new frmContractGrid(x);
+                objGridContract.Show();
+                this.Close();
             }
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-           
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            CorporateClient.CorporateClientWebService objWebService = new CorporateClient.CorporateClientWebService();
             string searchText = txtSearch.Text;
-            corporateClientInfoBindingSource.DataSource = objWebService.SearchCorporateClient(searchText, SystemSettings.AppToken);
-            
+            CorporateClient.CorporateClientWebService objWebService = new CorporateClient.CorporateClientWebService();
+            DataTable dt= objWebService.SearchCorporateClient(searchText, TokenCleintEncrypt.Encrypt(ClientTokenBuilder.BuildTokens()));
+            if(dt.Rows.Count>0)
+            {
+                dataGridViewCorporateClient.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No Records Found !!!");
+                txtSearch.Text = string.Empty;
+            }
+
+        }
+
+        private void cmbShowRows_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CorporateClient.CorporateClientWebService objWebService = new CorporateClient.CorporateClientWebService();
+            int current = 0;
+            int pagesize = Int32.Parse(cmbShowRows.SelectedValue.ToString());
+            DataSet ds = objWebService.GetPageData(current, pagesize, TokenCleintEncrypt.Encrypt(ClientTokenBuilder.BuildTokens()));
+            if (ds.Tables.Count > 0)
+            {
+                DataTable dt = ds.Tables[1];
+                dataGridViewCorporateClient.DataSource = dt;
+            }
+
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            dataGridViewCorporateClient.DataSource = null;
+            LoadCorporateClient();
+            ComboBoxItem objCombo = new ComboBoxItem();
+            cmbShowRows.DataSource = objCombo.ItemOfCmbShowRows();
         }
     }
 }

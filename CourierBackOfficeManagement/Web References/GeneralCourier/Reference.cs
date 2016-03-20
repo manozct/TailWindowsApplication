@@ -348,6 +348,8 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         
         private string courierNumberField;
         
+        private decimal courierChargeField;
+        
         private string receiverFullNameField;
         
         private string senderFullNameField;
@@ -360,9 +362,9 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         
         private string receiverAddressField;
         
-        private int receiverMobileField;
+        private string receiverMobileField;
         
-        private int receiverPhoneField;
+        private string receiverPhoneField;
         
         private int numberOfPackageField;
         
@@ -384,9 +386,9 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         
         private string senderAddressField;
         
-        private int senderMobileField;
+        private string senderMobileField;
         
-        private int senderPhoneField;
+        private string senderPhoneField;
         
         private string addedByField;
         
@@ -419,6 +421,16 @@ namespace CourierBackOfficeManagement.GeneralCourier {
             }
             set {
                 this.courierNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal CourierCharge {
+            get {
+                return this.courierChargeField;
+            }
+            set {
+                this.courierChargeField = value;
             }
         }
         
@@ -483,7 +495,7 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         }
         
         /// <remarks/>
-        public int ReceiverMobile {
+        public string ReceiverMobile {
             get {
                 return this.receiverMobileField;
             }
@@ -493,7 +505,7 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         }
         
         /// <remarks/>
-        public int ReceiverPhone {
+        public string ReceiverPhone {
             get {
                 return this.receiverPhoneField;
             }
@@ -603,7 +615,7 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         }
         
         /// <remarks/>
-        public int SenderMobile {
+        public string SenderMobile {
             get {
                 return this.senderMobileField;
             }
@@ -613,7 +625,7 @@ namespace CourierBackOfficeManagement.GeneralCourier {
         }
         
         /// <remarks/>
-        public int SenderPhone {
+        public string SenderPhone {
             get {
                 return this.senderPhoneField;
             }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourierBackOfficeManagement.Login;
+using CourierManagement;
 
 
 namespace CourierBackOfficeManagement
@@ -20,7 +21,7 @@ namespace CourierBackOfficeManagement
         public frmLogin()
         {
             InitializeComponent();
-            placeholder();
+           
         }
 
 
@@ -29,25 +30,17 @@ namespace CourierBackOfficeManagement
         {
 
         }
-        public void placeholder()
-        {
-            txtUsername.Text = "Username";
-            txtUsername.ForeColor = Color.Gray;
-            txtPassword.Text = "Password";
-            txtPassword.ForeColor = Color.Gray;
-        }
+      
 
         private bool ValidateLogin()
         {
             bool validateLogin = false;
             try
             {
-
                 int PortalID = SystemPortalID.PortalID;
                 Login.LoginWebService obj = new Login.LoginWebService();
                 
-                if (obj.LoginUser(PortalID, txtUsername.Text, txtPassword.Text, SystemSettings.AppToken))
-
+                if (obj.LoginUser(PortalID, txtUsername.Text, txtPassword.Text, TokenCleintEncrypt.Encrypt(ClientTokenBuilder.BuildTokens())))
                 {
                     validateLogin = true;
                 }
@@ -70,45 +63,18 @@ namespace CourierBackOfficeManagement
            
             if (ValidateLogin() == true)
             {
+                GetLoginUser.PortalID = SystemPortalID.PortalID;
+                GetLoginUser.UserName = txtUsername.Text;
                 this.DialogResult = DialogResult.OK;
+                
             }
 
 
         }
 
-        private void txtUsername_Enter(object sender, EventArgs e)
-        {
-            txtUsername.Text = "";
-            txtUsername.ForeColor = Color.Black;
-
-        }
-
-        private void txtUsername_Leave(object sender, EventArgs e)
-        {
-            if (txtUsername.Text == "")
-            {
-                txtUsername.Text = "Username";
-                txtUsername.ForeColor = Color.Gray;
-            }
-
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            txtPassword.Text = "";
-            txtPassword.ForeColor = Color.Black;
-
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "")
-            {
-                txtPassword.Text = "Password";
-                txtPassword.ForeColor = Color.Gray;
-            }
-
-        }
+       
+     
+      
 
         private void frmLogin_Load(object sender, EventArgs e)
         {

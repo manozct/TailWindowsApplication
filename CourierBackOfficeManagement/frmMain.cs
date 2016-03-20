@@ -15,8 +15,11 @@ namespace CourierBackOfficeManagement
         public frmMain()
         {
             InitializeComponent();
+            _UserName = GetLoginUser.UserName;
            
         }
+        private string _UserName;
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -36,8 +39,8 @@ namespace CourierBackOfficeManagement
 
         private void expenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmExpense objfrmExpense = new frmExpense();
-            objfrmExpense.Show();
+            frmGridExpense objFrmGrid = new frmGridExpense();
+            objFrmGrid.Show();
         }
 
         private void fIleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,14 +56,14 @@ namespace CourierBackOfficeManagement
 
         private void stateToolStripMenuState_Click(object sender, EventArgs e)
         {
-            frmState objfrmState = new frmState();
-            objfrmState.Show();
+            frmGridState objFrm = new frmGridState();
+            objFrm.Show();
         }
 
         private void locationToolStripMenuLocation_Click(object sender, EventArgs e)
         {
-            frmLocation objfrmLocation = new frmLocation();
-            objfrmLocation.Show();
+            frmGridLocation objFrmGrid = new frmGridLocation();
+            objFrmGrid.Show();
         }
 
         private void addCorporateClientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,14 +80,30 @@ namespace CourierBackOfficeManagement
 
         private void addCourierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOrder objfrmOrder = new frmOrder();
-            objfrmOrder.Show();
+            frmGridCorporateCourierEntry objFrm = new frmGridCorporateCourierEntry();
+            objFrm.Show();
         }
 
         private void priceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGeneralPrice objfrmGeneralPrice = new frmGeneralPrice();
-            objfrmGeneralPrice.Show();
+            frmGridGeneralCourierPrice objFrm = new frmGridGeneralCourierPrice();
+            objFrm.Show();
+        }
+
+        private void demoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport objFrm = new frmReport();
+            objFrm.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = DateTime.Now.ToString();
         }
     }
 }

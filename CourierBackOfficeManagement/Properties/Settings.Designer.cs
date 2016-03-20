@@ -72,5 +72,87 @@ namespace CourierBackOfficeManagement.Properties {
                 return ((string)(this["CourierBackOfficeManagement_GeneralCourier_GeneralCourierWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/CorporateClientLocationWebService.asmx")]
+        public string CourierBackOfficeManagement_CorporateClientLocation_CorporateClientLocationWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_CorporateClientLocation_CorporateClientLocationWebSer" +
+                    "vice"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/StateWebService.asmx")]
+        public string CourierBackOfficeManagement_State_StateWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_State_StateWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/CorporateCourierEntryWebService.asmx")]
+        public string CourierBackOfficeManagement_CorporateCourierEntry_CorporateCourierEntryWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_CorporateCourierEntry_CorporateCourierEntryWebService" +
+                    ""]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/ExpenseHeadWebService.asmx")]
+        public string CourierBackOfficeManagement_ExpenseHead_ExpenseHeadWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_ExpenseHead_ExpenseHeadWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/ExpenseWebService.asmx")]
+        public string CourierBackOfficeManagement_Expense_ExpenseWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_Expense_ExpenseWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/GeneralCourierPriceWebService.asmx")]
+        public string CourierBackOfficeManagement_GeneralCourierPrice_GeneralCourierPriceWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_GeneralCourierPrice_GeneralCourierPriceWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/CourierReportWebService.asmx")]
+        public string CourierBackOfficeManagement_CourierReport_CourierReportWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_CourierReport_CourierReportWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44719/BackEndWebService/CompanyLogoAndAddressWebService.asmx")]
+        public string CourierBackOfficeManagement_Logo_LogoWebService {
+            get {
+                return ((string)(this["CourierBackOfficeManagement_Logo_LogoWebService"]));
+            }
+        }
     }
 }
